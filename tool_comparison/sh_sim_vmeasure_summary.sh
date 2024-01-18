@@ -49,7 +49,7 @@ python sc_calculate_v_measure.py -i $BASE_DIR
 
 #ml R/4.1.0
 # Generate plot of all available tool results
-# NOTE: UPDATE the below script with the version of V-measure data to use
+# NOTE: UPDATE the below script with the filename of the V-measure data
 #Rscript ../Rscripts/sc_plot_v_measure_results.R -i $BASE_DIR
 
 
