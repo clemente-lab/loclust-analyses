@@ -1,0 +1,31 @@
+Chi Squared analysis results for /sc/arion/projects/clemej05a/kevin/loclust/babies_mg/babies_mg_lego5_outputs/outputs/taxa_trajs_lego_interp/L6__Faecalibacterium_trajs_lego-interp_sig_4_pc_3_num_clusters_9/L6__Faecalibacterium_trajs_lego-interp_sig_4_loclust_k9_3pca.tsv
+Comparisons of metadata with respect to: cluster
+Calculations performed on: Nov-03-2023
+
+###delivery###
+dof = 7, test statistic = 16.661, p = 0.020, significance level = 0.050, fdr_p_adj = 0.039, Dependent (reject H0)
+###sex###
+dof = 7, test statistic = 1.700, p = 0.975, significance level = 0.050, fdr_p_adj = 0.975, Independent (fail to reject H0)
+
+ References: 
+ https://machinelearningmastery.com/chi-squared-test-for-machine-learning/ 
+
+###### Frequency Tables Below ######
+###delivery###
+Contingency Table 
+[[1. 7. 3. 2. 3. 0. 0. 2.]
+ [5. 2. 2. 3. 1. 5. 5. 1.]]
+Expected Frequency Table 
+[[2.57142857 3.85714286 2.14285714 2.14285714 1.71428571 2.14285714
+  2.14285714 1.28571429]
+ [3.42857143 5.14285714 2.85714286 2.85714286 2.28571429 2.85714286
+  2.85714286 1.71428571]]
+###sex###
+Contingency Table 
+[[2. 2. 2. 2. 2. 1. 2. 1.]
+ [4. 7. 3. 3. 2. 4. 3. 2.]]
+Expected Frequency Table 
+[[2.         3.         1.66666667 1.66666667 1.33333333 1.66666667
+  1.66666667 1.        ]
+ [4.         6.         3.33333333 3.33333333 2.66666667 3.33333333
+  3.33333333 2.        ]]

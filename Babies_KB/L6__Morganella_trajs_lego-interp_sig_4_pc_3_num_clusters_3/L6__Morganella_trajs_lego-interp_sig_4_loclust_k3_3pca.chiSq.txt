@@ -1,0 +1,27 @@
+Chi Squared analysis results for /sc/arion/projects/clemej05a/kevin/loclust/babies_mg/babies_mg_lego5_outputs/outputs/taxa_trajs_lego_interp/L6__Morganella_trajs_lego-interp_sig_4_pc_3_num_clusters_3/L6__Morganella_trajs_lego-interp_sig_4_loclust_k3_3pca.tsv
+Comparisons of metadata with respect to: cluster
+Calculations performed on: Nov-03-2023
+
+###delivery###
+dof = 1, test statistic = 1.450, p = 0.229, significance level = 0.050, fdr_p_adj = 0.444, Independent (fail to reject H0)
+###sex###
+dof = 1, test statistic = 0.585, p = 0.444, significance level = 0.050, fdr_p_adj = 0.444, Independent (fail to reject H0)
+
+ References: 
+ https://machinelearningmastery.com/chi-squared-test-for-machine-learning/ 
+
+###### Frequency Tables Below ######
+###delivery###
+Contingency Table 
+[[11.  7.]
+ [ 9. 15.]]
+Expected Frequency Table 
+[[ 8.57142857  9.42857143]
+ [11.42857143 12.57142857]]
+###sex###
+Contingency Table 
+[[ 5.  9.]
+ [15. 13.]]
+Expected Frequency Table 
+[[ 6.66666667  7.33333333]
+ [13.33333333 14.66666667]]

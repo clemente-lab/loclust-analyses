@@ -1,0 +1,2 @@
+V measure score for /sc/arion/projects/clemej05a/kevin/loclust/babies_mg/babies_mg_lego5_outputs/outputs/taxa_trajs_lego_interp with respect to delivery is 
+0.1392007298366106

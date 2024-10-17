@@ -1,0 +1,22 @@
+Chi Squared analysis results for /sc/arion/projects/clemej05a/kevin/loclust/sean/outputs/taxa_trajs/L6_Enterococcus_trajs_pc_4_num_clusters_7/L6_Enterococcus_trajs_loclust_k7_4pca.tsv
+Comparisons of metadata with respect to: cluster
+Calculations performed on: Nov-01-2023
+
+###Diet###
+dof = 9, test statistic = 41.600, p = 0.000, significance level = 0.050, fdr_p_adj = 0.000, Dependent (reject H0)
+
+ References: 
+ https://machinelearningmastery.com/chi-squared-test-for-machine-learning/ 
+
+###### Frequency Tables Below ######
+###Diet###
+Contingency Table 
+[[4. 0. 1. 0.]
+ [1. 0. 0. 4.]
+ [0. 5. 0. 0.]
+ [1. 0. 4. 0.]]
+Expected Frequency Table 
+[[1.5  1.25 1.25 1.  ]
+ [1.5  1.25 1.25 1.  ]
+ [1.5  1.25 1.25 1.  ]
+ [1.5  1.25 1.25 1.  ]]
