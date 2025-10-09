@@ -1,0 +1,177 @@
+Continuing with legacy script...
+
+/home/ewa/.local/share/mamba/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/ewa/.local/share/mamba/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py:3066: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+
+⚠️  DEPRECATION WARNING: Direct script usage is deprecated!
+Please use the unified CLI instead:
+  loclust cluster [OPTIONS] INPUT_FILE
+Example: loclust cluster data.tsv --method k-means --clusters 3
+Run 'loclust cluster --help' for more information
+
+cwd: /home/ewa/Dropbox/mssm_research/loclust/simulations/clustering_scripts
+dir_out: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043/clustering/gmm_k9/gmm_k9
+True
+...reading data
+
+0 trajectories dropped for being too short. 450 trajs remaining.
+
+...performing adaptive interpolation
+   - Target points: 100
+   - Threshold: 20 points (PCHIP < 20, LOWESS >= 20)
+   - Interpolated 450 trajectories:
+     • PCHIP (sparse): 0 trajectories
+     • LOWESS (dense): 450 trajectories
+
+...rescaling trajectories
+
+(0.0, 100.0)
+
+...calculating loClust statistics
+
+Pre-processing Configuration:
+{'input_filename': None, 'rescale_flag': True, 'rescale_group_flag': False, 'pca_flag': True, 'factor_analysis_flag': False, 'transform_trajs_flag': False, 'factor_corr_flag': False, 'cos_sim_flag': False}
+...calculating PCA decomposition
+
+Using elbow method for optimal PCA component selection...
+
+PCA Component Selection (Elbow Method):
+  Eigenvalue analysis: 52 total components available
+  Method 1 (variance drop <2%):  9 components
+  Method 2 (cumulative >93%):    13 components
+  Selected (median):             11 components
+  Variance explained:            90.94%
+  Individual component variance: [0.26558073 0.20653466 0.14268015 0.07879472 0.05544033 0.04441903
+ 0.02942143 0.02663429 0.02400343 0.01995978 0.0159657 ]
+Final: 11 PCA components explaining 90.9% of variance
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043/clustering/gmm_k9/gmm_k9
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043/clustering/gmm_k9/trajectories.clust.tsv
+Clustering rounds:   0%|          | 0/10 [00:00<?, ?it/s]Clustering rounds:  10%|█         | 1/10 [00:00<00:06,  1.31it/s]Clustering rounds:  20%|██        | 2/10 [00:01<00:05,  1.38it/s]Clustering rounds:  30%|███       | 3/10 [00:02<00:04,  1.41it/s]Clustering rounds:  40%|████      | 4/10 [00:02<00:04,  1.39it/s]Clustering rounds:  50%|█████     | 5/10 [00:03<00:03,  1.36it/s]Clustering rounds:  60%|██████    | 6/10 [00:04<00:02,  1.38it/s]Clustering rounds:  70%|███████   | 7/10 [00:04<00:02,  1.49it/s]Clustering rounds:  80%|████████  | 8/10 [00:05<00:01,  1.39it/s]Clustering rounds:  90%|█████████ | 9/10 [00:06<00:00,  1.44it/s]Clustering rounds: 100%|██████████| 10/10 [00:07<00:00,  1.43it/s]Clustering rounds: 100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+/home/ewa/Dropbox/mssm_research/loclust/loclust/plot.py:647: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  plt.figure()
+...performing clustering analysis with method gmm 
+
+Using forced k=9 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=9 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=9 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=9 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=9 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=9 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=9 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=9 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=9 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=9 (skipping optimization)
+PCAplot_filename: 
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043/clustering/gmm_k9/trajectories.clust.tsv
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043/clustering/gmm_k9/gmm_k9
+Writing to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043/clustering/gmm_k9/trajectories.clust.tsv
+...Cluster analysis complete.
+no plots flag: None
+Plotting clusters.
+True
+Plot Trajectories
+Plot cluster line. True key func
+[ 0.  1.  2.  3.  4.  5.  6.  7.  8.  9. 10. 11. 12. 13. 14. 15. 16. 17.
+ 18. 19.]
+purity
+[[0, 0.2524271844660194], [3, 0.14563106796116504], [4, 0.23300970873786409], [5, 0.14563106796116504], [6, 0.22330097087378642]]
+[-0.37562521  0.42478385  1.22519291  2.02560197  2.82601103  3.6264201
+  4.42682916  5.22723822  6.02764728  6.82805634  7.6284654   8.42887446
+  9.22928352 10.02969258 10.83010164 11.6305107  12.43091977 13.23132883
+ 14.03173789 14.83214695]
+purity
+[[0, 0.4782608695652174], [1, 0.15217391304347827], [3, 0.08695652173913043], [4, 0.043478260869565216], [7, 0.021739130434782608], [8, 0.21739130434782608]]
+[ 0.  1.  2.  3.  4.  5.  6.  7.  8.  9. 10. 11. 12. 13. 14. 15. 16. 17.
+ 18. 19.]
+purity
+[[0, 0.125], [3, 0.625], [5, 0.25]]
+[-0.04933912  0.93662371  1.92258653  2.90854935  3.89451217  4.88047499
+  5.86643782  6.85240064  7.83836346  8.82432628  9.8102891  10.79625193
+ 11.78221475 12.76817757 13.75414039 14.74010321 15.72606603 16.71202886
+ 17.69799168 18.6839545 ]
+purity
+[[1, 0.14743589743589744], [2, 0.32051282051282054], [3, 0.12179487179487179], [4, 0.038461538461538464], [5, 0.1794871794871795], [6, 0.17307692307692307], [7, 0.01282051282051282], [8, 0.00641025641025641]]
+[-0.03534292  0.94337739  1.9220977   2.900818    3.87953831  4.85825862
+  5.83697893  6.81569923  7.79441954  8.77313985  9.75186015 10.73058046
+ 11.70930077 12.68802107 13.66674138 14.64546169 15.624182   16.6029023
+ 17.58162261 18.56034292]
+purity
+[[8, 0.025], [1, 0.5], [4, 0.45], [5, 0.025]]
+[-2.44346095 -1.96403231 -1.48460368 -1.00517504 -0.5257464  -0.04631776
+  0.43311088  0.91253952  1.39196815  1.87139679  2.35082543  2.83025407
+  3.30968271  3.78911135  4.26853998  4.74796862  5.22739726  5.7068259
+  6.18625454  6.66568318]
+purity
+[[3, 0.2222222222222222], [7, 0.7777777777777778]]
+[ 0.  1.  2.  3.  4.  5.  6.  7.  8.  9. 10. 11. 12. 13. 14. 15. 16. 17.
+ 18. 19.]
+purity
+[[5, 1.0]]
+[-2.12740459 -1.90346727 -1.67952994 -1.45559261 -1.23165529 -1.00771796
+ -0.78378064 -0.55984331 -0.33590599 -0.11196866  0.11196866  0.33590599
+  0.55984331  0.78378064  1.00771796  1.23165529  1.45559261  1.67952994
+  1.90346727  2.12740459]
+purity
+[[8, 0.5869565217391305], [7, 0.41304347826086957]]
+[-2.54763529 -2.27946316 -2.01129102 -1.74311888 -1.47494675 -1.20677461
+ -0.93860248 -0.67043034 -0.4022582  -0.13408607  0.13408607  0.4022582
+  0.67043034  0.93860248  1.20677461  1.47494675  1.74311888  2.01129102
+  2.27946316  2.54763529]
+purity
+[[8, 0.34375], [7, 0.65625]]
+Trajectories plotted
+Found 9 clusters: [np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7), np.int64(8)]
+Plotted 156 trajectories in cluster 0
+Plotted 103 trajectories in cluster 1
+Plotted 2 trajectories in cluster 2
+Plotted 9 trajectories in cluster 3
+Plotted 46 trajectories in cluster 4
+Plotted 40 trajectories in cluster 5
+Plotted 46 trajectories in cluster 6
+Plotted 32 trajectories in cluster 7
+Plotted 16 trajectories in cluster 8
+Plotted 156 interpolated trajectories in cluster 0
+Plotted 103 interpolated trajectories in cluster 1
+Plotted 2 interpolated trajectories in cluster 2
+Plotted 9 interpolated trajectories in cluster 3
+Plotted 46 interpolated trajectories in cluster 4
+Plotted 40 interpolated trajectories in cluster 5
+Plotted 46 interpolated trajectories in cluster 6
+Plotted 32 interpolated trajectories in cluster 7
+Plotted 16 interpolated trajectories in cluster 8
+Comprehensive cluster summary plot saved to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043/clustering/gmm_k9/gmm_k9/cluster_summary.png
+Confusion matrix saved to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043/clustering/gmm_k9/gmm_k9/confusion_matrix.png
+LoClust Clustering Log
+Method: gmm
+k (fixed): 9
+Dataset: 9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043
+Started: 2025-10-08T19:08:29.184673
+Command: python /home/ewa/Dropbox/mssm_research/loclust/scripts/cluster_trajectories.py -fi trajectories.tsv -di /home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043 -fo /home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043/clustering/gmm_k9/trajectories.clust.tsv -do /home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043/clustering/gmm_k9 -c gmm -tk func -ak cluster --force-k 9 -rs 42 --write_flag --pca_flag
+
+================================================================================
+
+
+================================================================================
+Completed: 2025-10-08T19:09:15.486736
+Duration: 0:00:46.302063
+Status: SUCCESS

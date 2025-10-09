@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:43:49.887983
+Functions: ['exponential', 'norm', 'stage']
+Noise level: 0.0
+Random seed: 8
+
+Generating 200 trajectories for exponential...
+  Generated 200 trajectories
+Generating 200 trajectories for norm...
+  Generated 200 trajectories
+Generating 200 trajectories for stage...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-norm-stage/noise_0.00/seed_008/trajectories.tsv
+MD5 checksum: 0b9b5bd5ba1ad14b788c54089000abbf
+File size: 307,456 bytes
+
+Generation completed: 2025-10-08T20:43:50.012794

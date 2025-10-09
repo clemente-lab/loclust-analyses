@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:42:40.181882
+Functions: ['linear', 'poly', 'sin']
+Noise level: 0.04
+Random seed: 6
+
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+Generating 200 trajectories for poly...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/linear-poly-sin/noise_0.04/seed_006/trajectories.tsv
+MD5 checksum: 35d183c2b55c578cfe26eccb594a13cd
+File size: 355,249 bytes
+
+Generation completed: 2025-10-08T20:42:40.504855

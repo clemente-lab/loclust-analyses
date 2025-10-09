@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:39:48.961132
+Functions: ['exponential', 'linear', 'sin']
+Noise level: 0.2
+Random seed: 6
+
+Generating 200 trajectories for exponential...
+  Generated 200 trajectories
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.20/seed_006/trajectories.tsv
+MD5 checksum: 80f08b5ca4a679b37ec33fdd8ccb5de7
+File size: 354,086 bytes
+
+Generation completed: 2025-10-08T20:39:49.304545

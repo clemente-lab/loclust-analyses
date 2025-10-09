@@ -1,0 +1,38 @@
+{
+  "generation": {
+    "date": "2025-10-08T20:44:19.587402",
+    "script": "generate_systematic.py",
+    "loclust_repo": "/home/ewa/cleme/hilary/repos/loclust"
+  },
+  "parameters": {
+    "num_classes": 3,
+    "function_classes": [
+      "linear",
+      "sin",
+      "stage"
+    ],
+    "num_trajectories_per_class": 200,
+    "total_trajectories": 600,
+    "num_points": 20,
+    "noise_level_y": 0.16,
+    "noise_level_x": 0.0,
+    "rep": 1,
+    "percent_remove": 0.0,
+    "end": false,
+    "function_params": "default"
+  },
+  "randomization": {
+    "python_seed": 10,
+    "numpy_seed": 10
+  },
+  "output": {
+    "file": "trajectories.tsv",
+    "num_trajectories": 600,
+    "file_size_bytes": 353368,
+    "md5_checksum": "2a3e4f1f3362963e6390cf421fe35ca2"
+  },
+  "provenance": {
+    "command": "generate_systematic.py --config simulation_config.yaml --yes",
+    "working_directory": "/home/ewa/Dropbox/mssm_research/loclust/simulations/generation_scripts"
+  }
+}

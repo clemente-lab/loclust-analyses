@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:41:01.057472
+Functions: ['linear', 'norm', 'sin']
+Noise level: 0.08
+Random seed: 10
+
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+Generating 200 trajectories for norm...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/linear-norm-sin/noise_0.08/seed_010/trajectories.tsv
+MD5 checksum: d655ae87ecb53cb110f0bb705cf5f84a
+File size: 354,429 bytes
+
+Generation completed: 2025-10-08T20:41:01.332851

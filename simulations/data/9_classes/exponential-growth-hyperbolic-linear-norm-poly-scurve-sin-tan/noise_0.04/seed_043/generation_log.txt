@@ -1,0 +1,30 @@
+Generation started: 2025-10-08T18:04:36.530830
+Functions: ['exponential', 'growth', 'hyperbolic', 'linear', 'norm', 'poly', 'scurve', 'sin', 'tan']
+Noise level: 0.04
+Random seed: 43
+
+Generating 50 trajectories for exponential...
+  Generated 50 trajectories
+Generating 50 trajectories for growth...
+  Generated 50 trajectories
+Generating 50 trajectories for hyperbolic...
+  Generated 50 trajectories
+Generating 50 trajectories for linear...
+  Generated 50 trajectories
+Generating 50 trajectories for norm...
+  Generated 50 trajectories
+Generating 50 trajectories for poly...
+  Generated 50 trajectories
+Generating 50 trajectories for scurve...
+  Generated 50 trajectories
+Generating 50 trajectories for sin...
+  Generated 50 trajectories
+Generating 50 trajectories for tan...
+  Generated 50 trajectories
+
+Total trajectories: 450
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.04/seed_043/trajectories.tsv
+MD5 checksum: 4bfb09f1a391caa40549bcd5141e6423
+File size: 250,126 bytes
+
+Generation completed: 2025-10-08T18:04:36.747761

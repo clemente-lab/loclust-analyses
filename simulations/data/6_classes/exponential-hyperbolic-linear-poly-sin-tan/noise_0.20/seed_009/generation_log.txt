@@ -1,0 +1,24 @@
+Generation started: 2025-10-08T20:48:37.368010
+Functions: ['exponential', 'hyperbolic', 'linear', 'poly', 'sin', 'tan']
+Noise level: 0.2
+Random seed: 9
+
+Generating 200 trajectories for exponential...
+  Generated 200 trajectories
+Generating 200 trajectories for hyperbolic...
+  Generated 200 trajectories
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+Generating 200 trajectories for poly...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+Generating 200 trajectories for tan...
+  Generated 200 trajectories
+
+Total trajectories: 1200
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-hyperbolic-linear-poly-sin-tan/noise_0.20/seed_009/trajectories.tsv
+MD5 checksum: 153e71af426046432120beb8032b02fc
+File size: 712,724 bytes
+
+Generation completed: 2025-10-08T20:48:38.139946

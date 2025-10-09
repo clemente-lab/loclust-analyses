@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:43:30.302367
+Functions: ['hyperbolic', 'norm', 'scurve']
+Noise level: 0.2
+Random seed: 8
+
+Generating 200 trajectories for hyperbolic...
+  Generated 200 trajectories
+Generating 200 trajectories for norm...
+  Generated 200 trajectories
+Generating 200 trajectories for scurve...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/hyperbolic-norm-scurve/noise_0.20/seed_008/trajectories.tsv
+MD5 checksum: dc6ce157c2d2d9296da5a27e247204ca
+File size: 295,503 bytes
+
+Generation completed: 2025-10-08T20:43:30.659479

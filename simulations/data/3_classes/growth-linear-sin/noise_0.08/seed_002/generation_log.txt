@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:41:13.906581
+Functions: ['growth', 'linear', 'sin']
+Noise level: 0.08
+Random seed: 2
+
+Generating 200 trajectories for growth...
+  Generated 200 trajectories
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/growth-linear-sin/noise_0.08/seed_002/trajectories.tsv
+MD5 checksum: bfd32076d364df2220e0b9a1b8f22a22
+File size: 353,929 bytes
+
+Generation completed: 2025-10-08T20:41:14.210490

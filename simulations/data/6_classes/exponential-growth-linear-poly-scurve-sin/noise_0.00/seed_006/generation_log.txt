@@ -1,0 +1,24 @@
+Generation started: 2025-10-08T20:46:14.314852
+Functions: ['exponential', 'growth', 'linear', 'poly', 'scurve', 'sin']
+Noise level: 0.0
+Random seed: 6
+
+Generating 200 trajectories for exponential...
+  Generated 200 trajectories
+Generating 200 trajectories for growth...
+  Generated 200 trajectories
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+Generating 200 trajectories for poly...
+  Generated 200 trajectories
+Generating 200 trajectories for scurve...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+
+Total trajectories: 1200
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-linear-poly-scurve-sin/noise_0.00/seed_006/trajectories.tsv
+MD5 checksum: 4d06d3003150f7e05faf7e017a4450d6
+File size: 588,064 bytes
+
+Generation completed: 2025-10-08T20:46:14.588850

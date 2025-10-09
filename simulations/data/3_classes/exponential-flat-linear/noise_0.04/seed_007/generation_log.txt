@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:44:25.699979
+Functions: ['exponential', 'flat', 'linear']
+Noise level: 0.04
+Random seed: 7
+
+Generating 200 trajectories for exponential...
+  Generated 200 trajectories
+Generating 200 trajectories for flat...
+  Generated 200 trajectories
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-flat-linear/noise_0.04/seed_007/trajectories.tsv
+MD5 checksum: 2066f6227da68c47b0455d15984a03bd
+File size: 297,186 bytes
+
+Generation completed: 2025-10-08T20:44:25.997561

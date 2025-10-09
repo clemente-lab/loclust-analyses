@@ -1,0 +1,17 @@
+index	num_classes	function_combo	noise_level	seed	dataset_path
+1	3	exponential-hyperbolic-norm	0.0	42	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-hyperbolic-norm/noise_0.00/seed_042/trajectories.tsv
+2	3	exponential-hyperbolic-norm	0.0	43	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-hyperbolic-norm/noise_0.00/seed_043/trajectories.tsv
+3	3	exponential-hyperbolic-norm	0.04	42	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-hyperbolic-norm/noise_0.04/seed_042/trajectories.tsv
+4	3	exponential-hyperbolic-norm	0.04	43	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-hyperbolic-norm/noise_0.04/seed_043/trajectories.tsv
+5	3	exponential-linear-sin	0.0	42	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.00/seed_042/trajectories.tsv
+6	3	exponential-linear-sin	0.0	43	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.00/seed_043/trajectories.tsv
+7	3	exponential-linear-sin	0.04	42	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_042/trajectories.tsv
+8	3	exponential-linear-sin	0.04	43	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043/trajectories.tsv
+9	6	exponential-growth-hyperbolic-linear-norm-sin	0.0	42	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042/trajectories.tsv
+10	6	exponential-growth-hyperbolic-linear-norm-sin	0.0	43	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_043/trajectories.tsv
+11	6	exponential-growth-hyperbolic-linear-norm-sin	0.04	42	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.04/seed_042/trajectories.tsv
+12	6	exponential-growth-hyperbolic-linear-norm-sin	0.04	43	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.04/seed_043/trajectories.tsv
+13	9	exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan	0.0	42	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_042/trajectories.tsv
+14	9	exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan	0.0	43	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.00/seed_043/trajectories.tsv
+15	9	exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan	0.04	42	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.04/seed_042/trajectories.tsv
+16	9	exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan	0.04	43	/home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.04/seed_043/trajectories.tsv

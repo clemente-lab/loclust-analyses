@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:42:57.030914
+Functions: ['exponential', 'scurve', 'sin']
+Noise level: 0.0
+Random seed: 9
+
+Generating 200 trajectories for exponential...
+  Generated 200 trajectories
+Generating 200 trajectories for scurve...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-scurve-sin/noise_0.00/seed_009/trajectories.tsv
+MD5 checksum: 2da2aaca05fe67f1e13d3e2a483b58e5
+File size: 361,059 bytes
+
+Generation completed: 2025-10-08T20:42:57.166460

@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:39:21.081228
+Functions: ['exponential', 'hyperbolic', 'norm']
+Noise level: 0.0
+Random seed: 5
+
+Generating 200 trajectories for exponential...
+  Generated 200 trajectories
+Generating 200 trajectories for hyperbolic...
+  Generated 200 trajectories
+Generating 200 trajectories for norm...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-hyperbolic-norm/noise_0.00/seed_005/trajectories.tsv
+MD5 checksum: 31d25aad0804e557cea1c96b00779653
+File size: 297,306 bytes
+
+Generation completed: 2025-10-08T20:39:21.188214

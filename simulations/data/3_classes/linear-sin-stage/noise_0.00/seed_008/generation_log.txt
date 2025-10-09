@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:44:06.516491
+Functions: ['linear', 'sin', 'stage']
+Noise level: 0.0
+Random seed: 8
+
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+Generating 200 trajectories for stage...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/linear-sin-stage/noise_0.00/seed_008/trajectories.tsv
+MD5 checksum: 3103c6a4302b6e9cd923e6adb3deaa89
+File size: 282,015 bytes
+
+Generation completed: 2025-10-08T20:44:06.683686

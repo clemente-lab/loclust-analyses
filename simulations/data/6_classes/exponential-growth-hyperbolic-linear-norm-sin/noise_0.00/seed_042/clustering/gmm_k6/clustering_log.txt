@@ -1,0 +1,153 @@
+Continuing with legacy script...
+
+/home/ewa/.local/share/mamba/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+
+⚠️  DEPRECATION WARNING: Direct script usage is deprecated!
+Please use the unified CLI instead:
+  loclust cluster [OPTIONS] INPUT_FILE
+Example: loclust cluster data.tsv --method k-means --clusters 3
+Run 'loclust cluster --help' for more information
+
+cwd: /home/ewa/Dropbox/mssm_research/loclust/simulations/clustering_scripts
+dir_out: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042/clustering/gmm_k6/gmm_k6
+True
+...reading data
+
+0 trajectories dropped for being too short. 300 trajs remaining.
+
+...performing adaptive interpolation
+   - Target points: 100
+   - Threshold: 20 points (PCHIP < 20, LOWESS >= 20)
+   - Interpolated 300 trajectories:
+     • PCHIP (sparse): 0 trajectories
+     • LOWESS (dense): 300 trajectories
+
+...rescaling trajectories
+
+(0.0, 100.0)
+
+...calculating loClust statistics
+
+Pre-processing Configuration:
+{'input_filename': None, 'rescale_flag': True, 'rescale_group_flag': False, 'pca_flag': True, 'factor_analysis_flag': False, 'transform_trajs_flag': False, 'factor_corr_flag': False, 'cos_sim_flag': False}
+...calculating PCA decomposition
+
+Using elbow method for optimal PCA component selection...
+
+PCA Component Selection (Elbow Method):
+  Eigenvalue analysis: 52 total components available
+  Method 1 (variance drop <2%):  9 components
+  Method 2 (cumulative >93%):    11 components
+  Selected (median):             10 components
+  Variance explained:            91.97%
+  Individual component variance: [0.28756783 0.2395747  0.11145539 0.0827789  0.0528838  0.04584087
+ 0.03769242 0.023352   0.02035913 0.01822238]
+Final: 10 PCA components explaining 92.0% of variance
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042/clustering/gmm_k6/gmm_k6
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042/clustering/gmm_k6/trajectories.clust.tsv
+Clustering rounds:   0%|          | 0/10 [00:00<?, ?it/s]Clustering rounds:  10%|█         | 1/10 [00:00<00:04,  1.93it/s]Clustering rounds:  20%|██        | 2/10 [00:00<00:03,  2.18it/s]Clustering rounds:  30%|███       | 3/10 [00:01<00:03,  2.11it/s]Clustering rounds:  40%|████      | 4/10 [00:01<00:02,  2.30it/s]Clustering rounds:  50%|█████     | 5/10 [00:02<00:02,  2.31it/s]Clustering rounds:  60%|██████    | 6/10 [00:02<00:01,  2.30it/s]Clustering rounds:  70%|███████   | 7/10 [00:03<00:01,  1.94it/s]Clustering rounds:  80%|████████  | 8/10 [00:03<00:00,  2.02it/s]Clustering rounds:  90%|█████████ | 9/10 [00:04<00:00,  2.11it/s]Clustering rounds: 100%|██████████| 10/10 [00:04<00:00,  2.08it/s]Clustering rounds: 100%|██████████| 10/10 [00:04<00:00,  2.12it/s]
+/home/ewa/Dropbox/mssm_research/loclust/loclust/plot.py:647: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  plt.figure()
+...performing clustering analysis with method gmm 
+
+Using forced k=6 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=6 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=6 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=6 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=6 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=6 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=6 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=6 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=6 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=6 (skipping optimization)
+PCAplot_filename: 
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042/clustering/gmm_k6/trajectories.clust.tsv
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042/clustering/gmm_k6/gmm_k6
+Writing to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042/clustering/gmm_k6/trajectories.clust.tsv
+...Cluster analysis complete.
+no plots flag: None
+Plotting clusters.
+True
+Plot Trajectories
+Plot cluster line. True key func
+[-0.43633231  0.47070852  1.37774934  2.28479017  3.191831    4.09887183
+  5.00591266  5.91295348  6.81999431  7.72703514  8.63407597  9.5411168
+ 10.44815763 11.35519845 12.26223928 13.16928011 14.07632094 14.98336177
+ 15.8904026  16.79744342]
+purity
+[[0, 0.6388888888888888], [1, 0.027777777777777776], [3, 0.19444444444444445], [5, 0.1388888888888889]]
+[ 0.  1.  2.  3.  4.  5.  6.  7.  8.  9. 10. 11. 12. 13. 14. 15. 16. 17.
+ 18. 19.]
+purity
+[[0, 0.38571428571428573], [3, 0.21428571428571427], [4, 0.4]]
+[-2.82743339 -2.42980882 -2.03218425 -1.63455969 -1.23693512 -0.83931055
+ -0.44168599 -0.04406142  0.35356315  0.75118772  1.14881228  1.54643685
+  1.94406142  2.34168599  2.73931055  3.13693512  3.53455969  3.93218425
+  4.32980882  4.72743339]
+purity
+[[1, 0.05], [3, 0.05], [5, 0.9]]
+[-0.04520277  0.94516693  1.93553662  2.92590632  3.91627602  4.90664571
+  5.89701541  6.88738511  7.87775481  8.8681245   9.8584942  10.8488639
+ 11.8392336  12.82960329 13.81997299 14.81034269 15.80071239 16.79108208
+ 17.78145178 18.77182148]
+purity
+[[1, 0.2805755395683453], [2, 0.3597122302158273], [3, 0.18705035971223022], [4, 0.15827338129496402], [5, 0.014388489208633094]]
+[ 0.  1.  2.  3.  4.  5.  6.  7.  8.  9. 10. 11. 12. 13. 14. 15. 16. 17.
+ 18. 19.]
+purity
+[[1, 1.0]]
+[-3.14159265 -2.81089869 -2.48020473 -2.14951076 -1.8188168  -1.48812284
+ -1.15742887 -0.82673491 -0.49604095 -0.16534698  0.16534698  0.49604095
+  0.82673491  1.15742887  1.48812284  1.8188168   2.14951076  2.48020473
+  2.81089869  3.14159265]
+purity
+[[5, 1.0]]
+Trajectories plotted
+Found 6 clusters: [np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5)]
+Plotted 36 trajectories in cluster 0
+Plotted 70 trajectories in cluster 1
+Plotted 139 trajectories in cluster 2
+Plotted 7 trajectories in cluster 3
+Plotted 8 trajectories in cluster 4
+Plotted 40 trajectories in cluster 5
+Plotted 36 interpolated trajectories in cluster 0
+Plotted 70 interpolated trajectories in cluster 1
+Plotted 139 interpolated trajectories in cluster 2
+Plotted 7 interpolated trajectories in cluster 3
+Plotted 8 interpolated trajectories in cluster 4
+Plotted 40 interpolated trajectories in cluster 5
+Comprehensive cluster summary plot saved to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042/clustering/gmm_k6/gmm_k6/cluster_summary.png
+Confusion matrix saved to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042/clustering/gmm_k6/gmm_k6/confusion_matrix.png
+LoClust Clustering Log
+Method: gmm
+k (fixed): 6
+Dataset: 6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042
+Started: 2025-10-08T19:05:17.621426
+Command: python /home/ewa/Dropbox/mssm_research/loclust/scripts/cluster_trajectories.py -fi trajectories.tsv -di /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042 -fo /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042/clustering/gmm_k6/trajectories.clust.tsv -do /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.00/seed_042/clustering/gmm_k6 -c gmm -tk func -ak cluster --force-k 6 -rs 42 --write_flag --pca_flag
+
+================================================================================
+
+
+================================================================================
+Completed: 2025-10-08T19:05:49.581718
+Duration: 0:00:31.960292
+Status: SUCCESS

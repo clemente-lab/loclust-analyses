@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:40:18.149364
+Functions: ['exponential', 'growth', 'linear']
+Noise level: 0.16
+Random seed: 5
+
+Generating 200 trajectories for exponential...
+  Generated 200 trajectories
+Generating 200 trajectories for growth...
+  Generated 200 trajectories
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-growth-linear/noise_0.16/seed_005/trajectories.tsv
+MD5 checksum: 3b9d57e475e842411d61d5aa16b7b357
+File size: 297,272 bytes
+
+Generation completed: 2025-10-08T20:40:18.422244

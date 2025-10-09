@@ -1,0 +1,24 @@
+Generation started: 2025-10-08T20:49:37.569763
+Functions: ['growth', 'hyperbolic', 'linear', 'norm', 'sin', 'tan']
+Noise level: 0.2
+Random seed: 7
+
+Generating 200 trajectories for growth...
+  Generated 200 trajectories
+Generating 200 trajectories for hyperbolic...
+  Generated 200 trajectories
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+Generating 200 trajectories for norm...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+Generating 200 trajectories for tan...
+  Generated 200 trajectories
+
+Total trajectories: 1200
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/growth-hyperbolic-linear-norm-sin-tan/noise_0.20/seed_007/trajectories.tsv
+MD5 checksum: b053a272f7e4b8fb34b095e3abad17e7
+File size: 705,662 bytes
+
+Generation completed: 2025-10-08T20:49:38.139283

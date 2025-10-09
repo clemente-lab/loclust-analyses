@@ -1,0 +1,183 @@
+# LoClust Systematic Simulation Configuration
+# This file defines all simulation batches to generate
+
+# Each batch creates a dataset with N function classes (for clustering validation)
+# Goal: Test if clustering can correctly separate trajectories into their true classes
+
+# ============================================================================
+# 3-FUNCTION DATASETS (3 classes to cluster)
+# ============================================================================
+
+three_function_combinations:
+  description: "Datasets with 3 function classes for clustering validation"
+  num_classes: 3
+
+  # List of all 3-function combinations to generate
+  # Format: [func1, func2, func3] - alphabetically sorted
+  combinations:
+    # Set 1: Basic combinations
+    - [exponential, hyperbolic, norm]
+    - [exponential, linear, sin]
+    - [growth, hyperbolic, norm]
+    - [exponential, growth, linear]
+    - [hyperbolic, linear, norm]
+    - [exponential, sin, tan]
+    - [linear, norm, sin]
+    - [growth, linear, sin]
+    - [exponential, hyperbolic, linear]
+    - [exponential, norm, sin]
+
+    # Set 2: With polynomial
+    - [exponential, norm, poly]
+    - [hyperbolic, poly, sin]
+    - [linear, poly, sin]
+
+    # Set 3: With S-curve
+    - [exponential, scurve, sin]
+    - [hyperbolic, norm, scurve]
+    - [linear, scurve, sin]
+
+    # Set 4: With stage
+    - [exponential, stage, norm]
+    - [linear, sin, stage]
+
+    # Set 5: With flat
+    - [exponential, flat, linear]
+    - [flat, norm, sin]
+
+# ============================================================================
+# 6-FUNCTION DATASETS (6 classes to cluster - moderate difficulty)
+# ============================================================================
+
+six_function_combinations:
+  description: "Datasets with 6 function classes for clustering validation"
+  num_classes: 6
+
+  combinations:
+    # Comprehensive 6-function sets
+    - [exponential, growth, hyperbolic, linear, norm, sin]
+    - [exponential, hyperbolic, linear, norm, poly, sin]
+    - [exponential, growth, linear, poly, scurve, sin]
+    - [exponential, hyperbolic, linear, norm, scurve, tan]
+    - [exponential, growth, linear, norm, poly, tan]
+    - [exponential, hyperbolic, linear, poly, sin, tan]
+    - [growth, hyperbolic, linear, norm, sin, tan]
+    - [exponential, growth, hyperbolic, norm, poly, scurve]
+    - [exponential, growth, hyperbolic, linear, poly, sin]
+    - [exponential, growth, linear, norm, scurve, tan]
+
+# ============================================================================
+# 9-FUNCTION DATASETS (9 classes to cluster - high difficulty)
+# ============================================================================
+
+nine_function_combinations:
+  description: "Datasets with 9 function classes for clustering validation"
+  num_classes: 9
+
+  combinations:
+    # All 11 functions minus 2 (various exclusions)
+    - [exponential, growth, hyperbolic, linear, norm, poly, scurve, sin, tan]  # Exclude: flat, stage
+    - [exponential, flat, growth, hyperbolic, linear, norm, poly, sin, tan]    # Exclude: scurve, stage
+    - [exponential, growth, hyperbolic, linear, norm, poly, scurve, stage, tan] # Exclude: flat, sin
+    - [exponential, growth, hyperbolic, linear, norm, poly, sin, stage, tan]   # Exclude: flat, scurve
+    - [exponential, flat, growth, hyperbolic, linear, norm, scurve, sin, tan]  # Exclude: poly, stage
+
+# ============================================================================
+# COMMON PARAMETERS (applied to all simulations)
+# ============================================================================
+
+common_parameters:
+  # Trajectories per function class
+  num_trajectories_per_class: 200  # e.g., for 3 functions: 200*3 = 600 total trajectories
+
+  # Time points per trajectory
+  num_points: 20
+
+  # Replicates with noise (applied AFTER noise is added)
+  # For each original trajectory, create this many noised copies
+  rep: 1  # We'll handle replication via multiple seeds instead
+
+  # Function parameter generation
+  function_params: "default"  # Use default random parameter ranges
+
+  # Time point removal
+  percent_remove: 0.0  # Don't remove any time points
+  end: false           # N/A when percent_remove = 0
+
+  # X-axis noise
+  x_noise: 0.0  # No noise on time points
+
+# ============================================================================
+# NOISE LEVELS (Y-axis)
+# ============================================================================
+
+noise_levels:
+  # Test clustering robustness across different noise levels
+  values: [0.0, 0.04, 0.08, 0.12, 0.16, 0.20]
+
+  description: |
+    0.0  = No noise (perfect data)
+    0.04 = Low noise
+    0.08 = Moderate noise
+    0.12 = Moderate-high noise
+    0.16 = High noise
+    0.20 = Very high noise
+
+# ============================================================================
+# RANDOM SEEDS (for reproducibility and replication)
+# ============================================================================
+
+seeds:
+  # Generate multiple independent replicates with different random seeds
+  start: 1
+  count: 10  # Generate 10 independent replicates per combination/noise
+
+  description: |
+    Each seed produces a completely independent dataset with:
+    - Different random function parameters (slopes, intercepts, etc.)
+    - Different random noise values
+
+    This allows testing clustering stability across random variations.
+
+# ============================================================================
+# OUTPUT ORGANIZATION
+# ============================================================================
+
+output:
+  base_directory: "../data"
+
+  # Directory structure:
+  # data/
+  # ├── 3_classes/
+  # │   ├── exponential-hyperbolic-norm/
+  # │   │   ├── noise_0.00/
+  # │   │   │   ├── seed_001/
+  # │   │   │   │   ├── trajectories.tsv
+  # │   │   │   │   └── metadata.json
+  # │   │   │   ├── seed_002/
+  # │   │   │   └── ...
+  # │   │   ├── noise_0.04/
+  # │   │   └── ...
+  # │   └── ...
+  # ├── 6_classes/
+  # └── 9_classes/
+
+  include_metadata: true
+  compute_checksums: true
+  log_generation: true
+
+# ============================================================================
+# SUMMARY
+# ============================================================================
+
+# Total simulations to generate:
+#   3-class: 20 combinations × 6 noise levels × 10 seeds = 1,200 datasets
+#   6-class: 10 combinations × 6 noise levels × 10 seeds =   600 datasets
+#   9-class:  5 combinations × 6 noise levels × 10 seeds =   300 datasets
+#
+#   TOTAL: 2,100 datasets
+#
+# Each dataset contains:
+#   3-class: 200 trajectories/class × 3 classes =  600 trajectories
+#   6-class: 200 trajectories/class × 6 classes = 1,200 trajectories
+#   9-class: 200 trajectories/class × 9 classes = 1,800 trajectories

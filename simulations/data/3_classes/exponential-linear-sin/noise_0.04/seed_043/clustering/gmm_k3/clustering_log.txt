@@ -1,0 +1,133 @@
+Continuing with legacy script...
+
+/home/ewa/.local/share/mamba/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+
+⚠️  DEPRECATION WARNING: Direct script usage is deprecated!
+Please use the unified CLI instead:
+  loclust cluster [OPTIONS] INPUT_FILE
+Example: loclust cluster data.tsv --method k-means --clusters 3
+Run 'loclust cluster --help' for more information
+
+cwd: /home/ewa/Dropbox/mssm_research/loclust/simulations/clustering_scripts
+dir_out: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043/clustering/gmm_k3/gmm_k3
+True
+...reading data
+
+0 trajectories dropped for being too short. 150 trajs remaining.
+
+...performing adaptive interpolation
+   - Target points: 100
+   - Threshold: 20 points (PCHIP < 20, LOWESS >= 20)
+   - Interpolated 150 trajectories:
+     • PCHIP (sparse): 0 trajectories
+     • LOWESS (dense): 150 trajectories
+
+...rescaling trajectories
+
+(0.0, 100.0)
+
+...calculating loClust statistics
+
+Pre-processing Configuration:
+{'input_filename': None, 'rescale_flag': True, 'rescale_group_flag': False, 'pca_flag': True, 'factor_analysis_flag': False, 'transform_trajs_flag': False, 'factor_corr_flag': False, 'cos_sim_flag': False}
+...calculating PCA decomposition
+
+Using elbow method for optimal PCA component selection...
+
+PCA Component Selection (Elbow Method):
+  Eigenvalue analysis: 52 total components available
+  Method 1 (variance drop <2%):  9 components
+  Method 2 (cumulative >93%):    10 components
+  Selected (median):             9 components
+  Variance explained:            91.67%
+  Individual component variance: [0.34775724 0.16245782 0.1220924  0.10073952 0.06971201 0.03712224
+ 0.03121645 0.02470187 0.02089658]
+Final: 9 PCA components explaining 91.7% of variance
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043/clustering/gmm_k3/gmm_k3
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043/clustering/gmm_k3/trajectories.clust.tsv
+Clustering rounds:   0%|          | 0/10 [00:00<?, ?it/s]Clustering rounds:  10%|█         | 1/10 [00:00<00:02,  3.04it/s]Clustering rounds:  20%|██        | 2/10 [00:00<00:02,  3.58it/s]Clustering rounds:  30%|███       | 3/10 [00:00<00:02,  3.22it/s]Clustering rounds:  40%|████      | 4/10 [00:01<00:01,  3.76it/s]Clustering rounds:  50%|█████     | 5/10 [00:01<00:01,  4.13it/s]Clustering rounds:  60%|██████    | 6/10 [00:01<00:00,  4.20it/s]Clustering rounds:  70%|███████   | 7/10 [00:01<00:00,  4.27it/s]Clustering rounds:  80%|████████  | 8/10 [00:01<00:00,  4.48it/s]Clustering rounds:  90%|█████████ | 9/10 [00:02<00:00,  4.90it/s]Clustering rounds: 100%|██████████| 10/10 [00:02<00:00,  4.89it/s]Clustering rounds: 100%|██████████| 10/10 [00:02<00:00,  4.27it/s]
+/home/ewa/Dropbox/mssm_research/loclust/loclust/plot.py:647: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  plt.figure()
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+PCAplot_filename: 
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043/clustering/gmm_k3/trajectories.clust.tsv
+/home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043/clustering/gmm_k3/gmm_k3
+Writing to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043/clustering/gmm_k3/trajectories.clust.tsv
+...Cluster analysis complete.
+no plots flag: None
+Plotting clusters.
+True
+Plot Trajectories
+Plot cluster line. True key func
+[-0.83775804 -0.01623965  0.80527874  1.62679713  2.44831552  3.26983391
+  4.0913523   4.91287069  5.73438908  6.55590747  7.37742586  8.19894425
+  9.02046264  9.84198103 10.66349942 11.48501781 12.3065362  13.12805459
+ 13.94957298 14.77109137]
+purity
+[[0, 0.38333333333333336], [1, 0.35], [2, 0.26666666666666666]]
+[-1.43420534 -0.7397581  -0.04531085  0.64913639  1.34358364  2.03803088
+  2.73247812  3.42692537  4.12137261  4.81581986  5.5102671   6.20471434
+  6.89916159  7.59360883  8.28805608  8.98250332  9.67695057 10.37139781
+ 11.06584505 11.7602923 ]
+purity
+[[0, 0.34782608695652173], [1, 0.1956521739130435], [2, 0.45652173913043476]]
+[-0.92819783 -0.12594734  0.67630315  1.47855364  2.28080413  3.08305462
+  3.88530511  4.6875556   5.48980608  6.29205657  7.09430706  7.89655755
+  8.69880804  9.50105853 10.30330902 11.10555951 11.90781    12.71006049
+ 13.51231098 14.31456147]
+purity
+[[0, 0.25], [1, 0.45454545454545453], [2, 0.29545454545454547]]
+Trajectories plotted
+Found 3 clusters: [np.int64(0), np.int64(1), np.int64(2)]
+Plotted 46 trajectories in cluster 0
+Plotted 44 trajectories in cluster 1
+Plotted 60 trajectories in cluster 2
+Plotted 46 interpolated trajectories in cluster 0
+Plotted 44 interpolated trajectories in cluster 1
+Plotted 60 interpolated trajectories in cluster 2
+Comprehensive cluster summary plot saved to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043/clustering/gmm_k3/gmm_k3/cluster_summary.png
+Confusion matrix saved to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043/clustering/gmm_k3/gmm_k3/confusion_matrix.png
+LoClust Clustering Log
+Method: gmm
+k (fixed): 3
+Dataset: 3_classes/exponential-linear-sin/noise_0.04/seed_043
+Started: 2025-10-08T19:00:17.653438
+Command: python /home/ewa/Dropbox/mssm_research/loclust/scripts/cluster_trajectories.py -fi trajectories.tsv -di /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043 -fo /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043/clustering/gmm_k3/trajectories.clust.tsv -do /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-linear-sin/noise_0.04/seed_043/clustering/gmm_k3 -c gmm -tk func -ak cluster --force-k 3 -rs 42 --write_flag --pca_flag
+
+================================================================================
+
+
+================================================================================
+Completed: 2025-10-08T19:00:35.394565
+Duration: 0:00:17.741127
+Status: SUCCESS

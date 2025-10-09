@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:42:12.669924
+Functions: ['exponential', 'norm', 'poly']
+Noise level: 0.12
+Random seed: 10
+
+Generating 200 trajectories for exponential...
+  Generated 200 trajectories
+Generating 200 trajectories for norm...
+  Generated 200 trajectories
+Generating 200 trajectories for poly...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/exponential-norm-poly/noise_0.12/seed_010/trajectories.tsv
+MD5 checksum: 6faea4da248a431c68e4c11d216556f5
+File size: 297,889 bytes
+
+Generation completed: 2025-10-08T20:42:13.018259

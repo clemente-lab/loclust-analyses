@@ -1,0 +1,24 @@
+Generation started: 2025-10-08T20:45:18.163251
+Functions: ['exponential', 'growth', 'hyperbolic', 'linear', 'norm', 'sin']
+Noise level: 0.12
+Random seed: 7
+
+Generating 200 trajectories for exponential...
+  Generated 200 trajectories
+Generating 200 trajectories for growth...
+  Generated 200 trajectories
+Generating 200 trajectories for hyperbolic...
+  Generated 200 trajectories
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+Generating 200 trajectories for norm...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+
+Total trajectories: 1200
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-hyperbolic-linear-norm-sin/noise_0.12/seed_007/trajectories.tsv
+MD5 checksum: 982c090eb9773166b1d899d027be72fd
+File size: 651,162 bytes
+
+Generation completed: 2025-10-08T20:45:18.856465

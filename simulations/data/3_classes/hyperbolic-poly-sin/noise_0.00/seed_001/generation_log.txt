@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:42:19.456580
+Functions: ['hyperbolic', 'poly', 'sin']
+Noise level: 0.0
+Random seed: 1
+
+Generating 200 trajectories for hyperbolic...
+  Generated 200 trajectories
+Generating 200 trajectories for poly...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/hyperbolic-poly-sin/noise_0.00/seed_001/trajectories.tsv
+MD5 checksum: d552196243ca2b912e4bfee2bbad9a30
+File size: 336,392 bytes
+
+Generation completed: 2025-10-08T20:42:19.604882

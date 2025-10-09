@@ -1,0 +1,49 @@
+# PILOT TEST CONFIGURATION
+# Minimal config to verify the generation system works
+
+three_function_combinations:
+  description: "Test with just 2 combinations"
+  num_classes: 3
+  combinations:
+    - [exponential, hyperbolic, norm]
+    - [exponential, linear, sin]
+
+six_function_combinations:
+  description: "Test with just 1 combination"
+  num_classes: 6
+  combinations:
+    - [exponential, growth, hyperbolic, linear, norm, sin]
+
+nine_function_combinations:
+  description: "Test with just 1 combination"
+  num_classes: 9
+  combinations:
+    - [exponential, growth, hyperbolic, linear, norm, poly, scurve, sin, tan]
+
+common_parameters:
+  num_trajectories_per_class: 50  # Small for testing (instead of 200)
+  num_points: 20
+  rep: 1
+  function_params: "default"
+  percent_remove: 0.0
+  end: false
+  x_noise: 0.0
+
+noise_levels:
+  values: [0.0, 0.04]  # Just 2 noise levels for testing
+
+seeds:
+  start: 42
+  count: 2  # Just 2 seeds for testing
+
+output:
+  base_directory: "../data"
+  include_metadata: true
+  compute_checksums: true
+  log_generation: true
+
+# Test generation:
+#   3-class: 2 combos × 2 noise × 2 seeds =  8 datasets
+#   6-class: 1 combo  × 2 noise × 2 seeds =  4 datasets
+#   9-class: 1 combo  × 2 noise × 2 seeds =  4 datasets
+#   TOTAL: 16 datasets (very manageable for testing!)

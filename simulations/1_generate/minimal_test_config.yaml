@@ -1,0 +1,42 @@
+# MINIMAL TEST - Just 1 dataset to verify everything works
+
+three_function_combinations:
+  description: "Single test dataset"
+  num_classes: 3
+  combinations:
+    - [exponential, hyperbolic, norm]
+
+six_function_combinations:
+  description: "Not generating 6-class for minimal test"
+  num_classes: 6
+  combinations: []
+
+nine_function_combinations:
+  description: "Not generating 9-class for minimal test"
+  num_classes: 9
+  combinations: []
+
+common_parameters:
+  num_trajectories_per_class: 10  # Just 10 per class = 30 total
+  num_points: 20
+  rep: 1
+  function_params: "default"
+  percent_remove: 0.0
+  end: false
+  x_noise: 0.0
+
+noise_levels:
+  values: [0.04]  # Just one noise level
+
+seeds:
+  start: 42
+  count: 1  # Just one seed
+
+output:
+  base_directory: "../data"
+  include_metadata: true
+  compute_checksums: true
+  log_generation: true
+
+# This will generate EXACTLY 1 dataset:
+#   3-class: 1 combo × 1 noise × 1 seed = 1 dataset (30 trajectories)

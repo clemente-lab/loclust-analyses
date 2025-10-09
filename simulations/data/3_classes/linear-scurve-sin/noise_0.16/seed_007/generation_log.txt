@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:43:44.528275
+Functions: ['linear', 'scurve', 'sin']
+Noise level: 0.16
+Random seed: 7
+
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+Generating 200 trajectories for scurve...
+  Generated 200 trajectories
+Generating 200 trajectories for sin...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/linear-scurve-sin/noise_0.16/seed_007/trajectories.tsv
+MD5 checksum: 426259af2f408d0cb2c822547801923d
+File size: 355,282 bytes
+
+Generation completed: 2025-10-08T20:43:44.928086

@@ -1,0 +1,18 @@
+Generation started: 2025-10-08T20:40:03.797933
+Functions: ['growth', 'hyperbolic', 'norm']
+Noise level: 0.2
+Random seed: 2
+
+Generating 200 trajectories for growth...
+  Generated 200 trajectories
+Generating 200 trajectories for hyperbolic...
+  Generated 200 trajectories
+Generating 200 trajectories for norm...
+  Generated 200 trajectories
+
+Total trajectories: 600
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/3_classes/growth-hyperbolic-norm/noise_0.20/seed_002/trajectories.tsv
+MD5 checksum: cb5330894ecfb6050a7128c548c45a09
+File size: 294,297 bytes
+
+Generation completed: 2025-10-08T20:40:04.088842

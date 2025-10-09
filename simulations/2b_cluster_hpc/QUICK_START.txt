@@ -1,0 +1,69 @@
+================================================================================
+LOCLUST CLUSTER BENCHMARK - QUICK START
+================================================================================
+
+1. GENERATE DATA LOCALLY
+   cd generation_scripts
+   python generate_systematic.py --config simulation_config.yaml --yes
+   
+   → Creates 2,100 datasets (~10 GB)
+
+2. TRANSFER TO CLUSTER
+   rsync -avz data/ user@cluster:/path/to/loclust/simulations/data/
+   rsync -avz cluster_scripts/ user@cluster:/path/to/loclust/simulations/cluster_scripts/
+   rsync -avz clustering_scripts/ user@cluster:/path/to/loclust/simulations/clustering_scripts/
+   rsync -avz analysis/ user@cluster:/path/to/loclust/simulations/analysis/
+
+3. CONFIGURE (ON CLUSTER)
+   ssh user@cluster
+   cd /path/to/loclust/simulations/cluster_scripts
+   
+   # Edit queue names if needed
+   nano run_loclust_array.sh     # Change "premium" to your queue
+   nano run_r_method_array.sh    # Change "premium" to your queue
+   
+   # Add module loads if needed
+   nano run_loclust_array.sh     # Add: module load python/3.9
+   nano run_r_method_array.sh    # Add: module load R/4.2.0
+
+4. SUBMIT JOBS (ONE COMMAND!)
+   bash submit_all_clustering.sh
+   
+   → Submits 14,700 clustering jobs + 1 analysis job
+
+5. MONITOR
+   bjobs -sum                                    # Check status
+   find ../data -name "*.clust.tsv" | wc -l     # Count completed (target: 14,700)
+
+6. DOWNLOAD RESULTS
+   # On local machine
+   rsync -avz user@cluster:/path/to/loclust/simulations/results/ results/
+
+================================================================================
+SUBMITTED JOBS:
+- loclust_gmm[1-2100]           (2,100 jobs)
+- loclust_hierarchical[1-2100]  (2,100 jobs)
+- loclust_kmeans[1-2100]        (2,100 jobs)
+- loclust_spectral[1-2100]      (2,100 jobs)
+- r_kml[1-2100]                 (2,100 jobs)
+- r_dtwclust[1-2100]            (2,100 jobs)
+- r_mfuzz[1-2100]               (2,100 jobs)
+- vmeasure_calculation          (1 job, runs after all above complete)
+
+TOTAL: 14,701 jobs
+================================================================================
+
+TIMING ESTIMATES:
+- With 1,000 cores: 2-3 hours
+- With 100 cores:   20 hours
+- Serial:           50 days (DON'T DO THIS!)
+
+OUTPUT:
+results/vmeasure_scores.tsv    - All 14,700 individual results
+results/vmeasure_summary.tsv   - Aggregated by method
+
+HELP:
+Read USAGE_GUIDE.md for detailed step-by-step instructions
+Read README.md for technical details and troubleshooting
+
+================================================================================

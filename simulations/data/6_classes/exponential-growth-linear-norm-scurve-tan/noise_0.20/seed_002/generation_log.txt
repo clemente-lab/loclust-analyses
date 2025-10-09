@@ -1,0 +1,24 @@
+Generation started: 2025-10-08T20:51:03.926786
+Functions: ['exponential', 'growth', 'linear', 'norm', 'scurve', 'tan']
+Noise level: 0.2
+Random seed: 2
+
+Generating 200 trajectories for exponential...
+  Generated 200 trajectories
+Generating 200 trajectories for growth...
+  Generated 200 trajectories
+Generating 200 trajectories for linear...
+  Generated 200 trajectories
+Generating 200 trajectories for norm...
+  Generated 200 trajectories
+Generating 200 trajectories for scurve...
+  Generated 200 trajectories
+Generating 200 trajectories for tan...
+  Generated 200 trajectories
+
+Total trajectories: 1200
+Written to: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/6_classes/exponential-growth-linear-norm-scurve-tan/noise_0.20/seed_002/trajectories.tsv
+MD5 checksum: bf315d84580d784dcf3f22aa94595873
+File size: 651,266 bytes
+
+Generation completed: 2025-10-08T20:51:04.459496
