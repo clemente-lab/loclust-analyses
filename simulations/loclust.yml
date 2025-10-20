@@ -1,0 +1,17 @@
+name: loclust
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - setuptools 
+  - openpyxl
+  - scipy
+  - matplotlib
+  - scikit-learn
+  - statsmodels
+  - python=3.10
+  - pandas
+  - click
+  - notebook
+  - jupyterlab
+  - seaborn

@@ -1,7 +1,0 @@
-	ari	ari	ari	v_measure	v_measure	nvi	nvi	k_correct
-	mean	std	count	mean	std	mean	std	mean
-method								
-dtwclust	0.124	0.066	16	0.316	0.085	0.684	0.085	1.0
-gmm	0.22	0.12	16	0.34	0.143	0.66	0.143	1.0
-kml	0.13	0.079	16	0.31	0.097	0.69	0.097	1.0
-mfuzz	0.197	0.093	10	0.304	0.115	0.696	0.115	1.0

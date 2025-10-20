@@ -1,51 +1,0 @@
-Continuing with legacy script...
-
-/home/ewa/.local/share/mamba/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py:3065: RuntimeWarning: invalid value encountered in divide
-  c /= stddev[:, None]
-
-⚠️  DEPRECATION WARNING: Direct script usage is deprecated!
-Please use the unified CLI instead:
-  loclust cluster [OPTIONS] INPUT_FILE
-Example: loclust cluster data.tsv --method k-means --clusters 3
-Run 'loclust cluster --help' for more information
-
-cwd: /home/ewa/Dropbox/mssm_research/loclust/simulations/clustering_scripts
-dir_out: /home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.04/seed_043/clustering/gmm_k9/gmm_k9
-True
-...reading data
-
-0 trajectories dropped for being too short. 450 trajs remaining.
-
-...performing adaptive interpolation
-   - Target points: 100
-   - Threshold: 20 points (PCHIP < 20, LOWESS >= 20)
-   - Interpolated 450 trajectories:
-     • PCHIP (sparse): 0 trajectories
-     • LOWESS (dense): 450 trajectories
-
-...rescaling trajectories
-
-(0.0, 100.0)
-
-...calculating loClust statistics
-
-Pre-processing Configuration:
-{'input_filename': None, 'rescale_flag': True, 'rescale_group_flag': False, 'pca_flag': True, 'factor_analysis_flag': False, 'transform_trajs_flag': False, 'factor_corr_flag': False, 'cos_sim_flag': False}
-...calculating PCA decomposition
-
-Using elbow method for optimal PCA component selection...
-
-PCA Component Selection (Elbow Method):
-  Eigenvalue analysis: 52 total components available
-  Method 1 (variance drop <2%):  10 components
-  Method 2 (cumulative >93%):    13 components
-  Selected (median):             11 components
-  Variance explained:            91.20%
-  Individual component variance: [0.3034048  0.17284042 0.10583833 0.08317988 0.06461608 0.04798863
- 0.03870054 0.03698332 0.02469303 0.02003055 0.01377165]
-Final: 11 PCA components explaining 91.2% of variance
-/home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.04/seed_043/clustering/gmm_k9/gmm_k9
-/home/ewa/Dropbox/mssm_research/loclust/simulations/data/9_classes/exponential-growth-hyperbolic-linear-norm-poly-scurve-sin-tan/noise_0.04/seed_043/clustering/gmm_k9/trajectories.clust.tsv
-Clustering rounds:   0%|          | 0/10 [00:00<?, ?it/s]Clustering rounds:  10%|█         | 1/10 [00:00<00:08,  1.03it/s]Clustering rounds:  20%|██        | 2/10 [00:01<00:07,  1.10it/s]Clustering rounds:  30%|███       | 3/10 [00:02<00:06,  1.13it/s]Clustering rounds:  40%|████      | 4/10 [00:03<00:05,  1.14it/s]Clustering rounds:  50%|█████     | 5/10 [00:04<00:04,  1.15it/s]Clustering rounds:  60%|██████    | 6/10 [00:05<00:03,  1.14it/s]Clustering rounds:  70%|███████   | 7/10 [00:06<00:02,  1.11it/s]Clustering rounds:  80%|████████  | 8/10 [00:07<00:01,  1.10it/s]Clustering rounds:  90%|█████████ | 9/10 [00:08<00:00,  1.05it/s]Clustering rounds: 100%|██████████| 10/10 [00:09<00:00,  1.09it/s]Clustering rounds: 100%|██████████| 10/10 [00:09<00:00,  1.10it/s]
-/home/ewa/Dropbox/mssm_research/loclust/loclust/plot.py:647: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
-  plt.figure()

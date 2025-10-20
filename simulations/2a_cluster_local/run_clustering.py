@@ -31,9 +31,14 @@ LOCLUST_METHODS = {
 }
 
 
-def find_all_datasets(data_dir, batch=None):
+def find_all_datasets(data_dir, batch=None, pilot_only=False):
     """
     Find all trajectories.tsv files in the data directory.
+
+    Args:
+        data_dir: Path to data directory
+        batch: Filter to specific batch (3_classes, 6_classes, 9_classes)
+        pilot_only: If True, only include pilot datasets (seeds 042 and 043)
 
     Returns list of tuples: (trajectories_path, num_classes, metadata)
     """
@@ -59,6 +64,10 @@ def find_all_datasets(data_dir, batch=None):
 
         noise_level = float(noise_dir.split('_')[1])
         seed = int(seed_dir.split('_')[1])
+
+        # Filter to pilot seeds only if requested
+        if pilot_only and seed not in [42, 43]:
+            continue
 
         metadata = {
             'num_classes': num_classes,
@@ -117,10 +126,11 @@ def run_loclust_clustering(traj_file, num_classes, metadata, method, dry_run=Fal
         '-c', method,
         '-tk', 'func',  # True label column in our simulations
         '-ak', 'cluster',  # Assigned cluster column to create
-        '--force-k', str(num_classes),  # FIXED k - no automatic selection
+        '--force-k', str(num_classes),  # FIXED k - no automatic selection (fair comparison with R methods)
         '-rs', '42',  # Random seed for reproducibility
         '--write_flag',  # Write output files
-        '--pca_flag'  # Use PCA (as in R comparison)
+        '--pca_flag',  # Use PCA (as in R comparison)
+        '--no_cluster_plots_flag'  # Don't generate plots (headless mode)
     ]
 
     # Print what we're doing
@@ -210,6 +220,11 @@ def main():
         action='store_true',
         help='Print what would be run without actually running'
     )
+    parser.add_argument(
+        '--pilot-only',
+        action='store_true',
+        help='Run only on pilot datasets (seeds 042 and 043)'
+    )
 
     args = parser.parse_args()
 
@@ -222,10 +237,12 @@ def main():
         return 1
 
     print(f"Data directory: {data_dir}")
+    if args.pilot_only:
+        print("PILOT MODE: Only processing seeds 042 and 043")
 
     # Find all datasets
     print("\nFinding datasets...")
-    datasets = find_all_datasets(data_dir, args.batch)
+    datasets = find_all_datasets(data_dir, args.batch, pilot_only=args.pilot_only)
 
     if not datasets:
         print("No datasets found!")

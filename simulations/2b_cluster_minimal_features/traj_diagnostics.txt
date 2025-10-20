@@ -1,0 +1,119 @@
+=== TRAJ FAILURE DIAGNOSTIC ANALYSIS ===
+
+Loading OLD data (known failure case from Hilary directory)...
+
+OLD DATA - Cluster distribution:
+
+  1   2   3 
+399 200   1 
+Degenerate: FALSE
+
+OLD DATA - Diagnostics:
+                   metric
+1                 n_trajs
+2            n_timepoints
+3               min_value
+4               max_value
+5                   range
+6              mean_value
+7                sd_value
+8          mean_traj_mean
+9            sd_traj_mean
+10           mean_traj_sd
+11            min_traj_sd
+12        n_zero_variance
+13       mean_correlation
+14     median_correlation
+15        max_correlation
+16        min_correlation
+17  mean_within_class_cor
+18 n_perfect_correlations
+19          step1_success
+20          step2_success
+21              n_factors
+22            step1_error
+                                                                                 value
+1                                                                                  600
+2                                                                                   20
+3                                                                       -138.811759853
+4                                                                        268.331082634
+5                                                                        407.142842487
+6                                                                     39.7392997107528
+7                                                                     68.3507804724578
+8                                                                     39.7392997107528
+9                                                                     65.3803217753021
+10                                                                    16.0435603718529
+11                                                                    6.15398013896211
+12                                                                                   0
+13                                                                   0.213832883503237
+14                                                                   0.385958870039747
+15                                                                   0.999378527322721
+16                                                                  -0.831160684292727
+17                                                                    0.99446634545377
+18                                                                                   0
+19                                                                               FALSE
+20                                                                               FALSE
+21                                                                                  NA
+22 Error in step1measures(Y, X, ID = FALSE): could not find function "step1measures"\n
+
+
+Loading NEW data (known success case from potentially_simple)...
+
+NEW DATA - Cluster distribution:
+
+  1   2   3 
+360 158  82 
+Degenerate: FALSE
+
+NEW DATA - Diagnostics:
+                   metric
+1                 n_trajs
+2            n_timepoints
+3               min_value
+4               max_value
+5                   range
+6              mean_value
+7                sd_value
+8          mean_traj_mean
+9            sd_traj_mean
+10           mean_traj_sd
+11            min_traj_sd
+12        n_zero_variance
+13       mean_correlation
+14     median_correlation
+15        max_correlation
+16        min_correlation
+17  mean_within_class_cor
+18 n_perfect_correlations
+19          step1_success
+20          step2_success
+21              n_factors
+22            step1_error
+                                                                                 value
+1                                                                                  600
+2                                                                                   20
+3                                                                       -135.705023648
+4                                                                        269.903593472
+5                                                                         405.60861712
+6                                                                     39.2351138251448
+7                                                                     68.2223526337768
+8                                                                     39.2351138251448
+9                                                                     65.2509046475363
+10                                                                    16.0301411553085
+11                                                                    6.37449449579276
+12                                                                                   0
+13                                                                   0.215295637319108
+14                                                                   0.395530673213278
+15                                                                   0.999814826386173
+16                                                                  -0.806270859111588
+17                                                                   0.998613279054006
+18                                                                                   0
+19                                                                               FALSE
+20                                                                               FALSE
+21                                                                                  NA
+22 Error in step1measures(Y, X, ID = FALSE): could not find function "step1measures"\n
+Warning message:
+In fread(new_success_clust) :
+  Stopped early on line 602. Expected 7 fields but found 5. Consider fill=TRUE and comment.char=. First discarded non-empty line: <<91919,145.304086657,144.701448891,145.160101745,147.484401005,145.938234514,142.940827735	1	sin	0.12	352000>>
+
+=== COMPARISON COMPLETE ===

@@ -1,0 +1,76 @@
+/hpc/packages/minerva-centos7/py_packages/3.8/lib/python3.8/site-packages/statsmodels/tsa/base/tsa_model.py:7: FutureWarning: pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+  from pandas import (to_datetime, Int64Index, DatetimeIndex, Period,
+/hpc/packages/minerva-centos7/py_packages/3.8/lib/python3.8/site-packages/statsmodels/tsa/base/tsa_model.py:7: FutureWarning: pandas.Float64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+  from pandas import (to_datetime, Int64Index, DatetimeIndex, Period,
+Continuing with legacy script...
+
+
+⚠️  DEPRECATION WARNING: Direct script usage is deprecated!
+Please use the unified CLI instead:
+  loclust cluster [OPTIONS] INPUT_FILE
+Example: loclust cluster data.tsv --method k-means --clusters 3
+Run 'loclust cluster --help' for more information
+
+cwd: /sc/arion/projects/CVDlung/earl/loclust/simulations/2b_cluster_minimal_features
+dir_out: /sc/arion/projects/CVDlung/earl/loclust/simulations/data_minimal_features/input_trajs/8/3/clustering/gmm_k3/gmm_k3
+True
+...reading data
+
+0 trajectories dropped for being too short. 600 trajs remaining.
+
+...rescaling trajectories
+
+(0.0, 100.0)
+
+...calculating loClust statistics
+
+Pre-processing Configuration:
+{'input_filename': None, 'rescale_flag': True, 'rescale_group_flag': False, 'pca_flag': True, 'factor_analysis_flag': False, 'transform_trajs_flag': False, 'factor_corr_flag': False, 'cos_sim_flag': False}
+...calculating PCA decomposition
+
+Using fixed 9 PCA components (user-specified)
+Final: 9 PCA components explaining 89.1% of variance
+/sc/arion/projects/CVDlung/earl/loclust/simulations/data_minimal_features/input_trajs/8/3/clustering/gmm_k3/gmm_k3
+/sc/arion/projects/CVDlung/earl/loclust/simulations/data_minimal_features/input_trajs/8/3/clustering/gmm_k3/0.2noise.scurve-sin-tan.200reps.2.clust.tsv
+Clustering rounds:   0%|          | 0/10 [00:00<?, ?it/sClustering rounds:  10%|█         | 1/10 [00:04<00:44,  4.91s/itClustering rounds:  20%|██        | 2/10 [00:09<00:36,  4.57s/it]Clustering rounds:  30%|███       | 3/10 [00:14<00:32,  4.69s/it]Clustering rounds:  40%|████      | 4/10 [00:17<00:23,  3.92s/it]Clustering rounds:  50%|█████     | 5/10 [00:19<00:17,  3.40s/it]Clustering rounds:  60%|██████    | 6/10 [00:21<00:11,  2.78s/it]Clustering rounds:  70%|███████   | 7/10 [00:21<00:06,  2.06s/it]Clustering rounds:  80%|████████  | 8/10 [00:22<00:03,  1.58s/it]Clustering rounds:  90%|█████████ | 9/10 [00:22<00:01,  1.24s/it]Clustering rounds: 100%|██████████| 10/10 [00:23<00:00,  1.03s/it]Clustering rounds: 100%|██████████| 10/10 [00:23<00:00,  2.33s/it
+
+/sc/arion/projects/CVDlung/earl/loclust/loclust/plot.py:647: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
+  plt.figure()
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+...performing clustering analysis with method gmm 
+
+Using forced k=3 (skipping optimization)
+PCAplot_filename: 
+/sc/arion/projects/CVDlung/earl/loclust/simulations/data_minimal_features/input_trajs/8/3/clustering/gmm_k3/0.12noise.poly-sin-tan.200reps.2.clust.tsv
+/sc/arion/projects/CVDlung/earl/loclust/simulations/data_minimal_features/input_trajs/8/3/clustering/gmm_k3/gmm_k3
+Writing to: /sc/arion/projects/CVDlung/earl/loclust/simulations/data_minimal_features/input_trajs/8/3/clustering/gmm_k3/0.12noise.poly-sin-tan.200reps.2.clust.tsv
+...Cluster analysis complete.
+no plots flag: True
+ True
+ue

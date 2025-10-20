@@ -7,44 +7,51 @@
 #   Rscript run_r_methods.R --method all
 #   Rscript run_r_methods.R --method kml --batch 3_classes
 
-library(optparse)
 library(kml)
 library(dtwclust)
 library(traj)
 library(Mfuzz)
 library(data.table)
 
-# Parse command line arguments
-option_list <- list(
-  make_option(c("-m", "--method"), type="character", default="kml",
-              help="Clustering method: kml, dtwclust, traj, mfuzz, or all"),
-  make_option(c("-b", "--batch"), type="character", default=NULL,
-              help="Run only specific batch: 3_classes, 6_classes, or 9_classes"),
-  make_option(c("-d", "--data-dir"), type="character", default="../data",
-              help="Path to data directory"),
-  make_option(c("--dry-run"), action="store_true", default=FALSE,
-              help="Print what would be run without executing")
-)
-
-opt_parser <- OptionParser(option_list=option_list)
-opt <- parse_args(opt_parser)
+# Command line parsing (only when script is run directly, not when sourced)
+if (!exists("sourced_run_r_methods")) {
+  library(optparse)
+  
+  # Parse command line arguments
+  option_list <- list(
+    make_option(c("-m", "--method"), type="character", default="kml",
+                help="Clustering method: kml, dtwclust, traj, mfuzz, or all"),
+    make_option(c("-b", "--batch"), type="character", default=NULL,
+                help="Run only specific batch: 3_classes, 6_classes, or 9_classes"),
+    make_option(c("-d", "--data-dir"), type="character", default="../data",
+                help="Path to data directory"),
+    make_option(c("--dry-run"), action="store_true", default=FALSE,
+                help="Print what would be run without executing")
+  )
+  
+  opt_parser <- OptionParser(option_list=option_list)
+  opt <- parse_args(opt_parser)
+}
 
 # Available methods
 METHODS <- c("kml", "dtwclust", "traj", "mfuzz")
 
-# Determine which methods to run
-if (opt$method == "all") {
-  methods_to_run <- METHODS
-} else if (opt$method %in% METHODS) {
-  methods_to_run <- c(opt$method)
-} else {
-  cat(sprintf("Error: Unknown method '%s'\n", opt$method))
-  cat(sprintf("Available methods: %s\n", paste(METHODS, collapse=", ")))
-  quit(status=1)
+# Main execution (only when script is run directly, not when sourced)
+if (!exists("sourced_run_r_methods")) {
+  # Determine which methods to run
+  if (opt$method == "all") {
+    methods_to_run <- METHODS
+  } else if (opt$method %in% METHODS) {
+    methods_to_run <- c(opt$method)
+  } else {
+    cat(sprintf("Error: Unknown method '%s'\n", opt$method))
+    cat(sprintf("Available methods: %s\n", paste(METHODS, collapse=", ")))
+    quit(status=1)
+  }
+  
+  cat(sprintf("Data directory: %s\n", opt$`data-dir`))
+  cat(sprintf("Methods to run: %s\n", paste(methods_to_run, collapse=", ")))
 }
-
-cat(sprintf("Data directory: %s\n", opt$`data-dir`))
-cat(sprintf("Methods to run: %s\n", paste(methods_to_run, collapse=", ")))
 
 # Find all trajectory files
 find_datasets <- function(data_dir, batch_filter=NULL) {
@@ -142,14 +149,19 @@ trajectories_to_matrix <- function(trajs) {
 }
 
 # Run KML clustering
-run_kml <- function(file_path, num_classes, metadata, output_dir) {
+run_kml <- function(file_path, num_classes, metadata, output_dir, output_basename=NULL) {
   cat(sprintf("  Running KML (k=%d)...\n", num_classes))
 
   # Read data
   data <- read_trajectory_data(file_path)
 
-  # Convert to matrix format
-  mat <- trajectories_to_matrix(data$trajectories)
+  # Convert to matrix format WITHOUT interpolation (matching legacy behavior)
+  # Legacy used raw Y values directly since all simulation trajectories have same 20 timepoints
+  # Build matrix by stacking Y values as rows
+  mat <- matrix(NA, nrow=length(data$trajectories), ncol=length(data$trajectories[[1]]$values))
+  for (i in seq_along(data$trajectories)) {
+    mat[i, ] <- data$trajectories[[i]]$values
+  }
 
   # Create ClusterLongData object
   cld <- clusterLongData(traj=mat, idAll=data$metadata$ID, time=1:ncol(mat))
@@ -160,19 +172,35 @@ run_kml <- function(file_path, num_classes, metadata, output_dir) {
   # Get cluster assignments using getClusters function
   clusters <- getClusters(cld, num_classes)
 
+  # Validate clusters
+  if (is.null(clusters) || length(clusters) == 0) {
+    cat("    ✗ Error: Failed to extract cluster assignments\n")
+    return(NULL)
+  }
+
+  if (length(clusters) != nrow(data$metadata)) {
+    cat(sprintf("    ✗ Error: Cluster count mismatch (got %d, expected %d)\n",
+                length(clusters), nrow(data$metadata)))
+    return(NULL)
+  }
+
+  cat(sprintf("    ✓ Extracted %d cluster assignments\n", length(clusters)))
+
   # Write output in same format as input but with cluster column
   # IMPORTANT: Insert cluster column BEFORE the ",," marker (position 4)
   output_data <- data$metadata
+  other_cols <- setdiff(names(output_data), c("ID", "X", "Y"))
   output_data <- data.table(
     ID = output_data$ID,
     X = output_data$X,
     Y = output_data$Y,
-    cluster = clusters,
-    output_data[, !c("ID", "X", "Y"), with=FALSE]
+    cluster = as.character(clusters),
+    output_data[, ..other_cols]
   )
 
-  # Write trajectories.clust.tsv
-  output_file <- file.path(output_dir, "trajectories.clust.tsv")
+  # Write trajectories.clust.tsv (or custom basename if provided)
+  filename <- if (!is.null(output_basename)) output_basename else "trajectories.clust.tsv"
+  output_file <- file.path(output_dir, filename)
   fwrite(output_data, output_file, sep="\t")
 
   cat(sprintf("    ✓ Success - wrote %s\n", output_file))
@@ -181,7 +209,7 @@ run_kml <- function(file_path, num_classes, metadata, output_dir) {
 }
 
 # Run DTWclust clustering
-run_dtwclust <- function(file_path, num_classes, metadata, output_dir) {
+run_dtwclust <- function(file_path, num_classes, metadata, output_dir, output_basename=NULL) {
   cat(sprintf("  Running DTWclust (k=%d)...\n", num_classes))
 
   # Read data
@@ -192,27 +220,104 @@ run_dtwclust <- function(file_path, num_classes, metadata, output_dir) {
     ts(t$values, start=min(t$time), frequency=1)
   })
 
-  # Run DTW clustering with hierarchical method
-  clust <- tsclust(ts_list, type="h", k=num_classes,
+  # Run DTW clustering with PARTITIONAL method (matching legacy behavior)
+  # Legacy used: type="partitional", centroid="pam", nrep=20, seed=3247
+  # Current uses seed=42 (different from legacy 3247 but documented)
+  clust_result <- tsclust(ts_list, type="partitional", k=num_classes,
                    distance="dtw_basic",
-                   control=hierarchical_control(method="ward.D2"),
-                   seed=42)
+                   centroid="pam",
+                   seed=42,
+                   control=partitional_control(nrep=20))
+
+  # When nrep > 1, tsclust returns a list of results (one per repetition)
+  # Select the best one based on minimum within-cluster distance
+  if (is.list(clust_result) && length(clust_result) > 1 &&
+      "PartitionalTSClusters" %in% class(clust_result[[1]])) {
+    # Extract objective values from each repetition
+    obj_vals <- sapply(clust_result, function(x) {
+      if (isS4(x) && "cldist" %in% slotNames(x)) {
+        sum(x@cldist)  # Sum of within-cluster distances
+      } else {
+        Inf  # If can't extract, mark as worst
+      }
+    })
+    # Pick the repetition with minimum objective value
+    best_idx <- which.min(obj_vals)
+    clust <- clust_result[[best_idx]]
+    cat(sprintf("    Selected best of %d repetitions (obj=%.2f)\n",
+                length(clust_result), obj_vals[best_idx]))
+  } else {
+    clust <- clust_result
+  }
 
   # Get cluster assignments
-  clusters <- clust@cluster
+  # dtwclust result structure depends on version:
+  # - Newer versions: S4 object with @cluster slot
+  # - Older versions: list with cluster element or direct vector
+  clusters <- tryCatch({
+    if (isS4(clust)) {
+      # S4 object - try @cluster slot
+      clust@cluster
+    } else if (is.list(clust)) {
+      # List - try multiple extraction methods
+      if (!is.null(clust$cluster)) {
+        clust$cluster
+      } else if (length(clust) > 0 && is.numeric(clust[[1]])) {
+        # Sometimes returns list where first element is cluster vector
+        unlist(clust)
+      } else {
+        stop(sprintf("List result with unexpected structure: %s", paste(names(clust), collapse=", ")))
+      }
+    } else if (is.numeric(clust) || is.integer(clust)) {
+      # Direct numeric/integer vector
+      clust
+    } else {
+      stop(sprintf("Unexpected result type: %s", class(clust)[1]))
+    }
+  }, error = function(e) {
+    cat(sprintf("    ✗ Error extracting clusters: %s\n", e$message))
+    cat(sprintf("    Class of result: %s\n", paste(class(clust), collapse=", ")))
+    if (isS4(clust)) {
+      cat(sprintf("    Slots: %s\n", paste(slotNames(clust), collapse=", ")))
+    } else if (is.list(clust)) {
+      cat(sprintf("    Names: %s\n", paste(names(clust), collapse=", ")))
+      cat(sprintf("    Length: %d\n", length(clust)))
+      if (length(clust) > 0) {
+        cat(sprintf("    First element class: %s\n", paste(class(clust[[1]]), collapse=", ")))
+      }
+    }
+    return(NULL)
+  })
+
+  # Validate clusters
+  if (is.null(clusters)) {
+    cat("    ✗ Error: Failed to extract cluster assignments\n")
+    return(NULL)
+  }
+
+  if (length(clusters) != nrow(data$metadata)) {
+    cat(sprintf("    ✗ Error: Cluster count mismatch (got %d, expected %d)\n",
+                length(clusters), nrow(data$metadata)))
+    return(NULL)
+  }
+
+  cat(sprintf("    ✓ Extracted %d cluster assignments\n", length(clusters)))
 
   # Write output
   # IMPORTANT: Insert cluster column BEFORE the ",," marker (position 4)
   output_data <- data$metadata
+  other_cols <- setdiff(names(output_data), c("ID", "X", "Y"))
   output_data <- data.table(
     ID = output_data$ID,
     X = output_data$X,
     Y = output_data$Y,
-    cluster = clusters,
-    output_data[, !c("ID", "X", "Y"), with=FALSE]
+    cluster = as.character(clusters),
+    output_data[, ..other_cols]
   )
 
-  output_file <- file.path(output_dir, "trajectories.clust.tsv")
+  # Write output (use custom basename if provided)
+  filename <- if (!is.null(output_basename)) output_basename else "trajectories.clust.tsv"
+  output_file <- file.path(output_dir, filename)
   fwrite(output_data, output_file, sep="\t")
 
   cat(sprintf("    ✓ Success - wrote %s\n", output_file))
@@ -221,48 +326,73 @@ run_dtwclust <- function(file_path, num_classes, metadata, output_dir) {
 }
 
 # Run Traj clustering
-run_traj <- function(file_path, num_classes, metadata, output_dir) {
+run_traj <- function(file_path, num_classes, metadata, output_dir, output_basename=NULL) {
   cat(sprintf("  Running Traj (k=%d)...\n", num_classes))
 
   # Read data
   data <- read_trajectory_data(file_path)
 
-  # Prepare data for traj package (needs long format)
-  # ID, time, value format
-  long_data <- data.frame()
+  # Prepare data for traj package (needs matrix format, not long format)
+  # Build Y matrix (rows=trajectories, cols=time points)
+  # Build X matrix (time values)
+  n_traj <- length(data$trajectories)
+  n_time <- length(data$trajectories[[1]]$values)
+
+  Y_matrix <- matrix(NA, nrow=n_traj, ncol=n_time)
+  X_matrix <- matrix(NA, nrow=n_traj, ncol=n_time)
 
   for (i in seq_along(data$trajectories)) {
-    traj <- data$trajectories[[i]]
-    for (j in seq_along(traj$time)) {
-      long_data <- rbind(long_data, data.frame(
-        ID = traj$id,
-        time = traj$time[j],
-        value = traj$values[j]
-      ))
-    }
+    Y_matrix[i, ] <- data$trajectories[[i]]$values
+    X_matrix[i, ] <- data$trajectories[[i]]$time
   }
 
   # Run traj clustering
-  # Note: traj uses CNORM models, may need adjustment for specific data
+  # Note: traj uses 3-step workflow (Step1Measures, Step2Selection, Step3Clusters)
+  # Note: Newer traj versions use capital letter function names
   tryCatch({
-    traj_result <- traj::traj(long_data, id="ID", time="time", y="value",
-                              model="CNORM", ng=num_classes)
+    # Step 1: Calculate trajectory measures
+    step1 <- Step1Measures(Y_matrix, Time=X_matrix, ID=FALSE)
 
-    # Get cluster assignments
-    clusters <- traj_result$assigned
+    # Step 2: Select measures using automatic algorithm (no select parameter)
+    # NOTE: Do NOT pass select=num_classes - that would only use ONE measure!
+    # The select parameter expects a vector of measure IDs, not a count
+    step2 <- Step2Selection(step1)
+
+    # Step 3: Assign trajectories to clusters with fixed k
+    step3 <- Step3Clusters(step2, nclusters=num_classes)
+
+    # Get cluster assignments (in partition$Cluster column)
+    clusters <- step3$partition$Cluster
+
+    # Validate clusters
+    if (is.null(clusters) || length(clusters) == 0) {
+      cat("    ✗ Error: Failed to extract cluster assignments\n")
+      return(NULL)
+    }
+
+    if (length(clusters) != nrow(data$metadata)) {
+      cat(sprintf("    ✗ Error: Cluster count mismatch (got %d, expected %d)\n",
+                  length(clusters), nrow(data$metadata)))
+      return(NULL)
+    }
+
+    cat(sprintf("    ✓ Extracted %d cluster assignments\n", length(clusters)))
 
     # Write output
     # IMPORTANT: Insert cluster column BEFORE the ",," marker (position 4)
     output_data <- data$metadata
+    other_cols <- setdiff(names(output_data), c("ID", "X", "Y"))
     output_data <- data.table(
       ID = output_data$ID,
       X = output_data$X,
       Y = output_data$Y,
-      cluster = clusters,
-      output_data[, !c("ID", "X", "Y"), with=FALSE]
+      cluster = as.character(clusters),
+      output_data[, ..other_cols]
     )
 
-    output_file <- file.path(output_dir, "trajectories.clust.tsv")
+    # Write output (use custom basename if provided)
+    filename <- if (!is.null(output_basename)) output_basename else "trajectories.clust.tsv"
+    output_file <- file.path(output_dir, filename)
     fwrite(output_data, output_file, sep="\t")
 
     cat(sprintf("    ✓ Success - wrote %s\n", output_file))
@@ -275,20 +405,37 @@ run_traj <- function(file_path, num_classes, metadata, output_dir) {
 }
 
 # Run Mfuzz clustering
-run_mfuzz <- function(file_path, num_classes, metadata, output_dir) {
+run_mfuzz <- function(file_path, num_classes, metadata, output_dir, output_basename=NULL) {
   cat(sprintf("  Running Mfuzz (k=%d)...\n", num_classes))
 
   # Read data
   data <- read_trajectory_data(file_path)
 
-  # Convert to matrix format
-  mat <- trajectories_to_matrix(data$trajectories)
+  # Convert to matrix format WITHOUT interpolation (matching other methods)
+  # Build matrix by stacking Y values as rows
+  mat <- matrix(NA, nrow=length(data$trajectories), ncol=length(data$trajectories[[1]]$values))
+  for (i in seq_along(data$trajectories)) {
+    mat[i, ] <- data$trajectories[[i]]$values
+  }
 
   # Create ExpressionSet object
   eset <- new("ExpressionSet", exprs=mat)
 
-  # Standardize data
-  eset.s <- standardise(eset)
+  # Standardize data with error handling for constant/low-variance trajectories
+  # Add small epsilon to avoid division by zero for flat trajectories
+  eset.s <- tryCatch({
+    standardise(eset)
+  }, error = function(e) {
+    # If standardization fails, manually standardize with epsilon
+    mat_centered <- t(apply(mat, 1, function(x) {
+      mu <- mean(x, na.rm=TRUE)
+      sigma <- sd(x, na.rm=TRUE)
+      # Add small epsilon (1e-10) to sigma to avoid division by zero
+      if (is.na(sigma) || sigma < 1e-10) sigma <- 1e-10
+      (x - mu) / sigma
+    }))
+    new("ExpressionSet", exprs=mat_centered)
+  })
 
   # Run fuzzy c-means clustering
   cl <- mfuzz(eset.s, c=num_classes, m=1.25)
@@ -296,18 +443,35 @@ run_mfuzz <- function(file_path, num_classes, metadata, output_dir) {
   # Get hard cluster assignments (max membership)
   clusters <- apply(cl$membership, 1, which.max)
 
+  # Validate clusters
+  if (is.null(clusters) || length(clusters) == 0) {
+    cat("    ✗ Error: Failed to extract cluster assignments\n")
+    return(NULL)
+  }
+
+  if (length(clusters) != nrow(data$metadata)) {
+    cat(sprintf("    ✗ Error: Cluster count mismatch (got %d, expected %d)\n",
+                length(clusters), nrow(data$metadata)))
+    return(NULL)
+  }
+
+  cat(sprintf("    ✓ Extracted %d cluster assignments\n", length(clusters)))
+
   # Write output
   # IMPORTANT: Insert cluster column BEFORE the ",," marker (position 4)
   output_data <- data$metadata
+  other_cols <- setdiff(names(output_data), c("ID", "X", "Y"))
   output_data <- data.table(
     ID = output_data$ID,
     X = output_data$X,
     Y = output_data$Y,
-    cluster = clusters,
-    output_data[, !c("ID", "X", "Y"), with=FALSE]
+    cluster = as.character(clusters),
+    output_data[, ..other_cols]
   )
 
-  output_file <- file.path(output_dir, "trajectories.clust.tsv")
+  # Write output (use custom basename if provided)
+  filename <- if (!is.null(output_basename)) output_basename else "trajectories.clust.tsv"
+  output_file <- file.path(output_dir, filename)
   fwrite(output_data, output_file, sep="\t")
 
   cat(sprintf("    ✓ Success - wrote %s\n", output_file))
@@ -434,5 +598,7 @@ main <- function() {
   cat(strrep("=", 80), "\n\n")
 }
 
-# Run main function
-main()
+# Run main function (only when script is run directly, not when sourced)
+if (!exists("sourced_run_r_methods")) {
+  main()
+}

@@ -1,0 +1,28 @@
+name: loclust_cluster
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.8
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - click
+  - tqdm
+  - statsmodels
+  - r-base=4.2
+  - r-optparse
+  - r-data.table
+  - r-kml
+  - r-dtw
+  - r-dtwclust
+  - r-cluster
+  - bioconductor-mfuzz
+  - pip
+  - pip:
+    - -e /sc/arion/projects/CVDlung/earl/loclust
+    # Note: r-traj installed separately via: Rscript -e "install.packages('traj')"
